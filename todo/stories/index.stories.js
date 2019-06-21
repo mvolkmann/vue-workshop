@@ -4,8 +4,20 @@ import {storiesOf} from '@storybook/vue';
 import {action} from '@storybook/addon-actions';
 //import {linkTo} from '@storybook/addon-links';
 
+import Arrow from '../src/components/Arrow';
 import Todo from '../src/components/Todo';
 import TodoList from '../src/components/TodoList';
+
+storiesOf('Arrow', module)
+  .add('default', () => ({
+    components: {Arrow},
+    template: '<Arrow :height="100" :width="200" />'
+  }))
+  .add('custom', () => ({
+    components: {Arrow},
+    template:
+      '<Arrow fill="yellow" :height="100" stroke="blue" :strokeWidth="5" :width="200" />'
+  }));
 
 storiesOf('Todo', module).add('default', () => {
   return {
