@@ -10,7 +10,6 @@
 export default {
   name: 'Todo',
   props: {
-    done: Boolean,
     onDeleteTodo: {
       type: Function,
       required: true
