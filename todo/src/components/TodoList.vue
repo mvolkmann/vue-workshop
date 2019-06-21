@@ -47,7 +47,10 @@ export default {
   },
   data() {
     return {
-      todos: [createTodo('learn Vue', true), createTodo('build a Vue app')],
+      todos: [
+        createTodo('learn Vue', true),
+        createTodo('build a Vue app')
+      ],
       todoText: ''
     };
   },
@@ -58,6 +61,7 @@ export default {
     },
 
     onArchiveCompleted() {
+      // Just deletes todos that are done in this version.
       this.todos = this.todos.filter(t => !t.done);
     },
 

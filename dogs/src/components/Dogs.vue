@@ -20,7 +20,9 @@
 </template>
 
 <script>
+/* For "REST" exercise ...
 const REST_URL = 'http://localhost:1919/dog';
+*/
 
 function sortDogs(dogs) {
   dogs.sort((dogA, dogB) => dogA.name.localeCompare(dogB.name));
@@ -35,6 +37,13 @@ export default {
       name: ''
     };
   },
+
+  // For "Lifecycle Methods" exercise ...
+  mounted() {
+    this.dogs = [{id: 1, name: 'Maisey'}, {id: 2, name: 'Oscar'}];
+  },
+
+  /* For "REST" exercise ...
   async mounted() {
     try {
       const res = await fetch(REST_URL);
@@ -43,11 +52,17 @@ export default {
       console.error('error getting dogs:', e.message);
     }
   },
+  */
+
   methods: {
     async addDog() {
       // If a dog with that name is already present, do nothing.
       const exists = this.dogs.some(dog => dog.name === this.name);
       if (!exists) {
+        const dog = {id: Date.now(), name: this.name};
+        this.dogs = sortDogs(this.dogs.concat(dog));
+
+        /* For "REST" exercise ...
         try {
           const res = await fetch(REST_URL, {method: 'POST', body: this.name});
           const dog = await res.json();
@@ -55,11 +70,16 @@ export default {
         } catch (e) {
           console.error('error adding dog:', e.message);
         }
+        */
       }
 
       this.name = '';
     },
+
     async deleteDog(id) {
+      this.dogs = this.dogs.filter(dog => dog.id !== id);
+
+      /* For "REST" exercise ...
       const url = REST_URL + '/' + id;
       try {
         await fetch(url, {method: 'DELETE'});
@@ -67,6 +87,7 @@ export default {
       } catch (e) {
         console.error('error deleting dog:', e.message);
       }
+      */
     }
   }
 };
