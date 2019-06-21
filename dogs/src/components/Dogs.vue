@@ -7,6 +7,7 @@
       </tr>
       <tr v-for="dog in dogs" :key="dog.name">
         <td>{{ dog.name }}</td>
+        <!-- This td is for the "REST" exercise. -->
         <td><button @click="() => deleteDog(dog.id)">&#x1f5d1;</button></td>
       </tr>
     </table>
@@ -60,6 +61,7 @@ export default {
       // If a dog with that name is already present, do nothing.
       const exists = this.dogs.some(dog => dog.name === this.name);
       if (!exists) {
+        /* An id is being added to each dog to support the deleteDog method. */
         const dog = {id: Date.now(), name: this.name};
         this.dogs = sortDogs(this.dogs.concat(dog));
 
@@ -77,6 +79,7 @@ export default {
       this.name = '';
     },
 
+    /* This method is for the "REST" exercise. */
     async deleteDog(id) {
       this.dogs = this.dogs.filter(dog => dog.id !== id);
 

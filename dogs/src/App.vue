@@ -1,22 +1,24 @@
 <template>
   <div id="app">
-    <!-- <Dogs /> -->
+    <Dogs />
+    <!-- For "Router" exercise ...
     <nav>
       <router-link to="/about">About</router-link>
       <router-link to="/dogs">Dogs</router-link>
     </nav>
     <router-view />
+    -->
   </div>
 </template>
 
 <script>
-//import Dogs from './components/Dogs.vue';
+import Dogs from './components/Dogs.vue';
 
 export default {
-  name: 'App'
-  // components: {
-  //   Dogs
-  // }
+  name: 'App',
+  components: {
+    Dogs
+  }
 };
 </script>
 
@@ -33,6 +35,7 @@ body {
   margin: 0;
 }
 
+/* For "Router" exercise ...
 nav {
   border-bottom: solid gray 1px;
   padding: 20px;
@@ -47,4 +50,5 @@ nav a {
 nav a.router-link-exact-active {
   color: green;
 }
+*/
 </style>
