@@ -1,0 +1,30 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true,
+    "jest": true,
+    "node": true
+  },
+
+  "parserOptions": {
+    "ecmaVersion": 9,
+    "parser": "babel-eslint",
+    "sourceType": "module"
+  },
+
+  "extends": [
+    "eslint:recommended",
+    "plugin:import/recommended",
+    "plugin:prettier/recommended",
+    "plugin:vue/recommended",
+    "@vue/prettier"
+  ],
+
+  "plugins": ["prettier", "vue"],
+
+  "rules": {
+    "no-console": "off",
+    "vue/attributes-order": "off"
+  }
+}
+
