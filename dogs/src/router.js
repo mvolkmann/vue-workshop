@@ -1,3 +1,4 @@
+/* This file is for the "Router" exercise. */
 import Vue from 'vue';
 import Router from 'vue-router';
 import About from './components/About.vue';
