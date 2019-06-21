@@ -38,10 +38,11 @@ export default {
     };
   },
 
-  // For "Lifecycle Methods" exercise ...
+  /* For "Lifecycle Methods" exercise ...
   mounted() {
     this.dogs = [{id: 1, name: 'Maisey'}, {id: 2, name: 'Oscar'}];
   },
+  */
 
   /* For "REST" exercise ...
   async mounted() {
