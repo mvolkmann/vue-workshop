@@ -16,15 +16,21 @@ export async function deleteResource(urlSuffix) {
 export async function getJson(urlSuffix) {
   const url = URL_PREFIX + urlSuffix;
   const res = await fetch(url, options);
-  if (!res.ok) throw new Error(await res.text());
+  if (!res.ok) {
+    const text = await res.text();
+    throw new Error(text || res.statusText);
+  }
   return res.json();
 }
 
 export async function getText(urlSuffix) {
   const url = URL_PREFIX + urlSuffix;
   const res = await fetch(url, options);
-  if (!res.ok) throw new Error(await res.text());
-  return res.text();
+  const text = await res.text();
+  if (!res.ok) {
+    throw new Error(text || res.statusText);
+  }
+  return text;
 }
 
 export function postJson(urlSuffix, obj) {
@@ -40,5 +46,9 @@ async function postPutJson(method, urlSuffix, obj) {
   const headers = {'Content-Type': 'application/json'};
   const url = URL_PREFIX + urlSuffix;
   const res = await fetch(url, {...options, method, headers, body});
+  if (!res.ok) {
+    const text = await res.text();
+    throw new Error(text || res.statusText);
+  }
   return res.json();
 }

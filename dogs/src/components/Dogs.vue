@@ -5,9 +5,8 @@
         <th>Name</th>
         <th>Actions</th>
       </tr>
-      <tr v-for="dog in dogs" :key="dog.name">
+      <tr v-for="dog in dogs" :key="dog.id">
         <td>{{ dog.name }}</td>
-        <!-- This td is for the "REST" exercise. -->
         <td><button @click="() => deleteDog(dog.id)">&#x1f5d1;</button></td>
       </tr>
     </table>
@@ -21,9 +20,8 @@
 </template>
 
 <script>
-/* For "REST" exercise ...
-const REST_URL = 'http://localhost:1919/dog';
-*/
+// For "REST" exercise ...
+//const REST_URL = 'http://localhost:1919/dog';
 
 function sortDogs(dogs) {
   dogs.sort((dogA, dogB) => dogA.name.localeCompare(dogB.name));
@@ -60,8 +58,10 @@ export default {
       // If a dog with that name is already present, do nothing.
       const exists = this.dogs.some(dog => dog.name === this.name);
       if (!exists) {
-        /* An id is being added to each dog to support the deleteDog method. */
+        // An id is being added to each dog to support the deleteDog method.
+        // Remove next line when using REST.
         const dog = {id: Date.now(), name: this.name};
+        // Remove next line when using REST.
         this.dogs = sortDogs(this.dogs.concat(dog));
 
         /* For "REST" exercise ...
@@ -78,8 +78,8 @@ export default {
       this.name = '';
     },
 
-    /* This method is for the "REST" exercise. */
     async deleteDog(id) {
+      // Remove next line when using REST.
       this.dogs = this.dogs.filter(dog => dog.id !== id);
 
       /* For "REST" exercise ...

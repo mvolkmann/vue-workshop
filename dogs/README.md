@@ -1,29 +1,16 @@
 # dogs
 
-## Project setup
-```
+## To build and run REST server
+
+```script
+cd server
 npm install
+npm start
 ```
 
-### Compiles and hot-reloads for development
-```
+## To build and run client
+
+```script
+npm install
 npm run serve
 ```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
