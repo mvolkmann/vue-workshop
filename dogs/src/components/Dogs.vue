@@ -20,8 +20,8 @@
 </template>
 
 <script>
-// For "REST" exercise ...
-//const REST_URL = 'http://localhost:1919/dog';
+//const REST_URL = null; // to skip using REST
+const REST_URL = 'http://localhost:1919/dog'; // to use REST server
 
 function sortDogs(dogs) {
   dogs.sort((dogA, dogB) => dogA.name.localeCompare(dogB.name));
@@ -42,55 +42,57 @@ export default {
   },
   */
 
-  /* For "REST" exercise ...
   async mounted() {
+    if (!REST_URL) return;
     try {
       const res = await fetch(REST_URL);
+      if (!res.ok) throw new Error(res.statusText);
       this.dogs = sortDogs(await res.json());
     } catch (e) {
       console.error('error getting dogs:', e.message);
     }
   },
-  */
 
   methods: {
     async addDog() {
       // If a dog with that name is already present, do nothing.
       const exists = this.dogs.some(dog => dog.name === this.name);
       if (!exists) {
-        // An id is being added to each dog to support the deleteDog method.
-        // Remove next line when using REST.
-        const dog = {id: Date.now(), name: this.name};
-        // Remove next line when using REST.
-        this.dogs = sortDogs(this.dogs.concat(dog));
-
-        /* For "REST" exercise ...
-        try {
-          const res = await fetch(REST_URL, {method: 'POST', body: this.name});
-          const dog = await res.json();
+        if (REST_URL) {
+          try {
+            const res = await fetch(REST_URL, {
+              method: 'POST',
+              body: this.name
+            });
+            if (!res.ok) throw new Error(res.statusText);
+            const dog = await res.json();
+            this.dogs = sortDogs(this.dogs.concat(dog));
+          } catch (e) {
+            console.error('error adding dog:', e.message);
+          }
+        } else {
+          // An id is being added to each dog to support the deleteDog method.
+          const dog = {id: Date.now(), name: this.name};
           this.dogs = sortDogs(this.dogs.concat(dog));
-        } catch (e) {
-          console.error('error adding dog:', e.message);
         }
-        */
       }
 
       this.name = '';
     },
 
     async deleteDog(id) {
-      // Remove next line when using REST.
-      this.dogs = this.dogs.filter(dog => dog.id !== id);
-
-      /* For "REST" exercise ...
-      const url = REST_URL + '/' + id;
-      try {
-        await fetch(url, {method: 'DELETE'});
+      if (REST_URL) {
+        const url = REST_URL + '/' + id;
+        try {
+          const res = await fetch(url, {method: 'DELETE'});
+          if (!res.ok) throw new Error(res.statusText);
+          this.dogs = this.dogs.filter(dog => dog.id !== id);
+        } catch (e) {
+          console.error('error deleting dog:', e.message);
+        }
+      } else {
         this.dogs = this.dogs.filter(dog => dog.id !== id);
-      } catch (e) {
-        console.error('error deleting dog:', e.message);
       }
-      */
     }
   }
 };
