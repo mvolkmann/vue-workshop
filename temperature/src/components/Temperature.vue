@@ -19,7 +19,6 @@
 
 <script>
 export default {
-  name: 'Temperature',
   props: {
     cold: {
       type: Number,

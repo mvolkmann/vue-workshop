@@ -31,7 +31,6 @@ function sortDogs(dogs) {
 }
 
 export default {
-  name: 'Dogs',
   data() {
     return {
       dogs: [],

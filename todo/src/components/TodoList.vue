@@ -38,7 +38,6 @@ let lastId = 0;
 const createTodo = (text, done = false) => ({id: ++lastId, text, done});
 
 export default {
-  name: 'TodoList',
   components: {Todo},
   computed: {
     uncompletedCount() {

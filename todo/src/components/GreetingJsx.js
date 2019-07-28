@@ -1,5 +1,4 @@
 export default {
-  name: 'GreetingJsx',
   props: {
     name: {
       type: String,

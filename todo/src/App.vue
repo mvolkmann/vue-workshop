@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <TodoList />
-    <GreetingJsx name="Mark" />
+    <!--GreetingJsx name="Mark" /-->
   </div>
 </template>
 
@@ -10,7 +10,6 @@ import GreetingJsx from './components/GreetingJsx.js';
 import TodoList from './components/TodoList.vue';
 
 export default {
-  name: 'app',
   components: {
     GreetingJsx,
     TodoList

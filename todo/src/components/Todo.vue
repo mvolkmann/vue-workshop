@@ -8,7 +8,6 @@
 
 <script>
 export default {
-  name: 'Todo',
   props: {
     onDeleteTodo: {
       type: Function,
@@ -50,7 +49,7 @@ li {
   margin-top: 10px;
 }
 
-li > span {
+span {
   margin-left: 10px;
 }
 </style>
