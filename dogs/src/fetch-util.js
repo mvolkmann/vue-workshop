@@ -27,9 +27,7 @@ export async function getText(urlSuffix) {
   const url = URL_PREFIX + urlSuffix;
   const res = await fetch(url, options);
   const text = await res.text();
-  if (!res.ok) {
-    throw new Error(text || res.statusText);
-  }
+  if (!res.ok) throw new Error(text || res.statusText);
   return text;
 }
 
