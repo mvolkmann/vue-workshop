@@ -6,7 +6,8 @@ npm install -D eslint-plugin-html
 npm install -D eslint-plugin-import
 npm install -D eslint-plugin-prettier
 npm install -D @vue/eslint-config-prettier
-npm install -D prettiernpm install -D eslint-config-prettier
+npm install -D prettier
+npm install -D eslint-config-prettier
 npm install -D eslint-plugin-html
 npm install -D eslint-plugin-import
 npm install -D eslint-plugin-prettier
