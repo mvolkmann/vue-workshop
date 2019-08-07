@@ -38,7 +38,6 @@ import Todo from './Todo.vue';
 const SERVER_URL = 'http://localhost:1919/todo/';
 
 export default {
-  name: 'TodoList',
   components: {Todo},
   computed: {
     ...mapGetters(['uncompletedCount']),

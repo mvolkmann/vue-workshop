@@ -1,13 +1,12 @@
 <template>
   <div id="app">
-    <Dogs />
-    <!-- For "Router" exercise ...
+    <!-- Dogs /-->
+    <!-- For "Router" exercise ... -->
     <nav>
       <router-link to="/about">About</router-link>
       <router-link to="/dogs">Dogs</router-link>
     </nav>
     <router-view />
-    -->
   </div>
 </template>
 
@@ -15,7 +14,6 @@
 import Dogs from './components/Dogs.vue';
 
 export default {
-  name: 'App',
   components: {
     Dogs
   }
@@ -35,7 +33,7 @@ body {
   margin: 0;
 }
 
-/* For "Router" exercise ...
+/* For "Router" exercise ... */
 nav {
   border-bottom: solid gray 1px;
   padding: 20px;
@@ -50,5 +48,4 @@ nav a {
 nav a.router-link-exact-active {
   color: green;
 }
-*/
 </style>

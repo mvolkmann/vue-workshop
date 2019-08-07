@@ -20,8 +20,8 @@
 </template>
 
 <script>
-//const REST_URL = null; // to skip using REST
-const REST_URL = 'http://localhost:1919/dog'; // to use REST server
+const REST_URL = null; // to skip using REST
+//const REST_URL = 'http://localhost:1919/dog'; // to use REST server
 
 function sortDogs(dogs) {
   dogs.sort((dogA, dogB) => dogA.name.localeCompare(dogB.name));

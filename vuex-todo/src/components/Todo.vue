@@ -8,7 +8,6 @@
 
 <script>
 export default {
-  name: 'Todo',
   props: {
     onDeleteTodo: {
       type: Function,

@@ -8,7 +8,6 @@
 <script>
 /* eslint-disable no-console */
 export default {
-  name: 'Fruit',
   computed: {
     imageUrl() {
       return `/images/${this.name}.jpeg`;

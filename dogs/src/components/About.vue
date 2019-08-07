@@ -5,9 +5,3 @@
     appeared at MidwestJS 2019.
   </div>
 </template>
-
-<script>
-export default {
-  name: 'About'
-};
-</script>

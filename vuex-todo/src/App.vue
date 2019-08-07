@@ -7,7 +7,6 @@ import TodoList from './components/TodoList';
 import store from './store';
 
 export default {
-  name: 'App',
   components: {TodoList},
   store
 };
